@@ -5,7 +5,7 @@
  
 @layer base {
   :root {
-    --background: 222.2 84% 4.9%;
+    --background: 240 50% 10%;
     --foreground: 210 40% 98%;
  
     --card: 222.2 84% 4.9%;
@@ -14,7 +14,7 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
  
-    --primary: 217.2 91.2% 59.8%;
+    --primary: 263 80% 65%;
     --primary-foreground: 222.2 47.4% 11.2%;
  
     --secondary: 217.2 32.6% 17.5%;
@@ -23,7 +23,7 @@
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
  
-    --accent: 217.2 32.6% 17.5%;
+    --accent: 288 95.8% 60.6%;
     --accent-foreground: 210 40% 98%;
  
     --destructive: 0 62.8% 30.6%;
@@ -43,13 +43,20 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
+    background-image: 
+      radial-gradient(circle at 50% 0%, hsl(var(--primary)/0.15), transparent 25%),
+      radial-gradient(circle at 0% 50%, hsl(var(--accent)/0.1), transparent 25%);
   }
 }
 
 .glass {
-  @apply bg-white/10 backdrop-blur-md border border-white/20;
+  @apply bg-black/30 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)];
 }
 
 .card-hover {
-  @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-lg;
+  @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_10px_40px_-15px_hsl(var(--primary))] hover:border-primary/50;
+}
+
+.neo-input {
+  @apply bg-black/20 border border-white/10 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-200;
 }
