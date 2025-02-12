@@ -1,17 +1,104 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>dark-secure-dashboard</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
-    <meta property="og:image" content="/og-image.png" />
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <nav class="navbar glass">
+        <div class="container">
+            <div class="nav-content">
+                <span class="logo">PassVault</span>
+                <div class="profile-dropdown">
+                    <button class="profile-button" id="profileButton">
+                        <i data-lucide="user"></i>
+                    </button>
+                    <div class="dropdown-content" id="dropdownContent">
+                        <div class="dropdown-item">
+                            <div class="user-info">
+                                <div class="username">Hello, John Doe</div>
+                                <div class="email">john.doe@example.com</div>
+                            </div>
+                        </div>
+                        <div class="dropdown-item destructive">
+                            <i data-lucide="log-out"></i>
+                            <span>Log out</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-  <body>
-    <div id="root"></div>
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <main class="container">
+        <div class="header">
+            <div>
+                <h1>Password Vault</h1>
+                <p>Securely store and manage your passwords</p>
+            </div>
+            <button class="add-button" id="addPasswordBtn">
+                <i data-lucide="plus"></i>
+                Add Password
+            </button>
+        </div>
+
+        <div class="password-grid" id="passwordGrid">
+            <!-- Password cards will be inserted here -->
+        </div>
+    </main>
+
+    <!-- Password Modal -->
+    <div class="modal" id="passwordModal">
+        <div class="modal-content glass">
+            <h2 id="modalTitle">Add New Password</h2>
+            <form id="passwordForm">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" id="titleInput" class="neo-input" placeholder="e.g., Google Account" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="usernameInput" class="neo-input" placeholder="Your username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Website</label>
+                    <input type="text" id="websiteInput" class="neo-input" placeholder="website.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Password</label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="passwordInput" class="neo-input" placeholder="Enter password" required>
+                        <button type="button" class="toggle-password">
+                            <i data-lucide="eye"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="confirmPasswordInput" class="neo-input" placeholder="Confirm password" required>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="button-ghost" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="button-primary">Add Password</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <script src="app.js"></script>
+</body>
 </html>
